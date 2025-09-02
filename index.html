@@ -120,6 +120,8 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -932,7 +934,13 @@
                     </a>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <!-- Formulario corregido para usar FormSubmit -->
+                    <form id="contactForm" action="https://formsubmit.co/alean.studio@gmail.com" method="POST">
+                        <!-- Campos opcionales para personalizar el email -->
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://tu-dominio.com/gracias.html">
+                        
                         <input type="text" name="name" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
                         <textarea name="message" placeholder="Cuéntanos sobre tu proyecto" required></textarea>
@@ -1000,16 +1008,13 @@
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+                    // No prevenimos el comportamiento por defecto para que FormSubmit funcione
+                    // Simplemente mostramos el modal
                     
-                    // Mostrar el modal de confirmación
-                    document.getElementById('confirmationModal').style.display = 'flex';
-                    
-                    // Opcional: resetear el formulario
-                    contactForm.reset();
-                    
-                    // Aquí podrías agregar código para enviar el formulario a un servidor
-                    // usando fetch o XMLHttpRequest si lo deseas
+                    // Mostrar el modal de confirmación después de un breve retraso
+                    setTimeout(function() {
+                        document.getElementById('confirmationModal').style.display = 'flex';
+                    }, 1000);
                 });
             }
         });
