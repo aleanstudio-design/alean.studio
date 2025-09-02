@@ -794,7 +794,7 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="rosa.jpg" alt="Proyecto Rosa Amaranato">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Rosa Amaranato">
                     <div class="portfolio-overlay">
                         <h3>Rosa Amaranato</h3>
                         <p>Proyecto de sustentabilidad enfocado en teñido natural de telas y prendas.</p>
@@ -802,7 +802,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="alele.jpg" alt="Proyecto Alele Bakery">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab794f24f6d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Alele Bakery">
                     <div class="portfolio-overlay">
                         <h3>Alele Bakery</h3>
                         <p>Pastelería artesanal especializada en postres únicos y opciones sin lactosa.</p>
@@ -810,7 +810,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="cuarzo.jpg" alt="Proyecto Cuarzos y Tarot">
+                    <img src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Cuarzos y Tarot">
                     <div class="portfolio-overlay">
                         <h3>Cuarzos y Tarot</h3>
                         <p>Emprendimiento de venta de cuarzos y tarot, enfocado en espiritualidad y bienestar.</p>
@@ -818,7 +818,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="puppy.jpg" alt="Proyecto PuppyLover's">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto PuppyLover's">
                     <div class="portfolio-overlay">
                         <h3>PuppyLover's</h3>
                         <p>Marca de productos y accesorios para perros, con línea combinada para dueños y mascotas.</p>
@@ -939,7 +939,8 @@
                         <!-- Campos opcionales para personalizar el email -->
                         <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://tu-dominio.com/gracias.html">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="">
                         
                         <input type="text" name="name" placeholder="Nombre completo" required>
                         <input type="email" name="email" placeholder="Correo electrónico" required>
@@ -957,7 +958,7 @@
     <!-- Modal de confirmación -->
     <div class="confirmation-modal" id="confirmationModal">
         <div class="modal-content">
-            <div class="modal-icon">✓</div>
+            <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
             <h3>¡Mensaje enviado con éxito!</h3>
             <p>Hemos recibido tu mensaje correctamente. Nos pondremos en contacto contigo pronto.</p>
             <button class="btn" onclick="closeModal()">Aceptar</button>
@@ -1008,14 +1009,93 @@
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
-                    // No prevenimos el comportamiento por defecto para que FormSubmit funcione
-                    // Simplemente mostramos el modal
+                    // Prevenir el comportamiento por defecto
+                    e.preventDefault();
                     
-                    // Mostrar el modal de confirmación después de un breve retraso
-                    setTimeout(function() {
+                    // Validar el formulario
+                    const nameInput = contactForm.querySelector('input[name="name"]');
+                    const emailInput = contactForm.querySelector('input[name="email"]');
+                    const messageInput = contactForm.querySelector('textarea[name="message"]');
+                    
+                    let isValid = true;
+                    
+                    if (!nameInput.value.trim()) {
+                        nameInput.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        nameInput.style.borderColor = '#ddd';
+                    }
+                    
+                    if (!emailInput.value.trim() || !isValidEmail(emailInput.value)) {
+                        emailInput.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        emailInput.style.borderColor = '#ddd';
+                    }
+                    
+                    if (!messageInput.value.trim()) {
+                        messageInput.style.borderColor = 'red';
+                        isValid = false;
+                    } else {
+                        messageInput.style.borderColor = '#ddd';
+                    }
+                    
+                    if (!isValid) {
+                        showFeedback('Por favor, completa todos los campos correctamente.', 'error');
+                        return;
+                    }
+                    
+                    // Si el formulario es válido, enviar los datos
+                    const formData = new FormData(contactForm);
+                    
+                    // Cambiar el texto del botón a "Enviando..."
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Enviando...';
+                    submitBtn.disabled = true;
+                    
+                    // Enviar el formulario usando Fetch API
+                    fetch('https://formsubmit.co/ajax/alean.studio@gmail.com', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Mostrar el modal de confirmación
                         document.getElementById('confirmationModal').style.display = 'flex';
-                    }, 1000);
+                        
+                        // Resetear el formulario
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        showFeedback('Error al enviar el mensaje. Por favor, inténtalo de nuevo.', 'error');
+                    })
+                    .finally(() => {
+                        // Restaurar el texto original del botón
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
                 });
+            }
+            
+            // Función para validar email
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            // Función para mostrar mensajes de feedback
+            function showFeedback(message, type) {
+                const feedbackEl = document.getElementById('form-feedback');
+                feedbackEl.textContent = message;
+                feedbackEl.className = 'form-feedback';
+                feedbackEl.classList.add(type === 'error' ? 'form-error' : 'form-success');
+                feedbackEl.style.display = 'block';
+                
+                // Ocultar el mensaje después de 5 segundos
+                setTimeout(() => {
+                    feedbackEl.style.display = 'none';
+                }, 5000);
             }
         });
         
