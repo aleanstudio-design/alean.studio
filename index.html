@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alean.Studio - Marketing Digital Creativo</title>
+	<link rel="icon" href="Alogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -491,60 +492,132 @@
             background-color: #128C7E;
         }
         
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            margin-bottom: 30px;
-        }
-        
-        .footer-logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 28px;
-            color: white;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        
-        .footer-logo span {
-            color: var(--accent);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin: 0 10px;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-        }
+	/* Footer modificado con tonos grises */
+footer {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.footer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-section p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.footer-links a {
+    display: block;
+    color: #b0b0b0;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-item i {
+    margin-right: 12px;
+    color: var(--accent);
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3a3a3a;
+    color: white;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Responsive para el footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-section h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}        
         
         /* FormSubmit.co styling */
         .form-feedback {
@@ -761,7 +834,7 @@
                             </div>
                             <h3>Landing Page</h3>
                             <p>Diseño de una página de aterrizaje responsiva y optimizada.</p>
-                            <div class="price">$2,500 MXN</div>
+                            <div class="price">Desde $2,500 MXN</div>
                         </div>
                         <div class="service-card">
                             <div class="service-icon">
@@ -769,7 +842,7 @@
                             </div>
                             <h3>Sitio Web Básico</h3>
                             <p>Desarrollo de sitio web con hasta 3 secciones principales.</p>
-                            <div class="price">$4,500 MXN</div>
+                            <div class="price">Desde $4,500 MXN</div>
                         </div>
                         <div class="service-card">
                             <div class="service-icon">
@@ -777,7 +850,7 @@
                             </div>
                             <h3>Tienda Online</h3>
                             <p>Creación de e-commerce con carrito de compras y pasarela de pagos.</p>
-                            <div class="price">$8,000 MXN</div>
+                            <div class="price">Desde $8,000 MXN</div>
                         </div>
                     </div>
                 </div>
@@ -790,11 +863,11 @@
         <div class="container">
             <div class="section-title">
                 <h2>Portafolio</h2>
-                <p>Proyectos destacados en los que he trabajado</p>
+                <p>Proyectos destacados en los que hemos trabajado</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Rosa Amaranato">
+                    <img src="rosa.jpg" alt="Proyecto Rosa Amaranato">
                     <div class="portfolio-overlay">
                         <h3>Rosa Amaranato</h3>
                         <p>Proyecto de sustentabilidad enfocado en teñido natural de telas y prendas.</p>
@@ -802,7 +875,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1555507036-ab794f24f6d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Alele Bakery">
+                    <img src="alele.jpg" alt="Proyecto Alele Bakery">
                     <div class="portfolio-overlay">
                         <h3>Alele Bakery</h3>
                         <p>Pastelería artesanal especializada en postres únicos y opciones sin lactosa.</p>
@@ -810,7 +883,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Cuarzos y Tarot">
+                    <img src="cuarzo.jpg" alt="Proyecto Cuarzos y Tarot">
                     <div class="portfolio-overlay">
                         <h3>Cuarzos y Tarot</h3>
                         <p>Emprendimiento de venta de cuarzos y tarot, enfocado en espiritualidad y bienestar.</p>
@@ -818,7 +891,7 @@
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto PuppyLover's">
+                    <img src="puppy.jpg" alt="Proyecto PuppyLover's">
                     <div class="portfolio-overlay">
                         <h3>PuppyLover's</h3>
                         <p>Marca de productos y accesorios para perros, con línea combinada para dueños y mascotas.</p>
@@ -827,17 +900,17 @@
                 </div>
                 <!-- Nuevos proyectos añadidos -->
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1556906781-2f0520405b71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Branding Café">
+                    <img src="arome.jpg" alt="Proyecto Branding Vino">
                     <div class="portfolio-overlay">
-                        <h3>Café Artesanal</h3>
-                        <p>Marca de café de especialidad con enfoque en origen y proceso artesanal.</p>
+                        <h3>Aromeé</h3>
+                        <p>Marca de vino de especialidad con enfoque en origen y proceso artesanal.</p>
                         <p>Diseño de identidad visual, packaging y estrategia de redes sociales.</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1564422166954-8537891c5f4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Proyecto Tienda Natural">
+                    <img src="organico.jpeg" alt="Proyecto Tienda Organica">
                     <div class="portfolio-overlay">
-                        <h3>Tienda Natural</h3>
+                        <h3>Tienda Organica</h3>
                         <p>E-commerce de productos naturales y orgánicos para cuidado personal.</p>
                         <p>Diseño web, estrategia de contenido y gestión de redes sociales.</p>
                     </div>
@@ -851,10 +924,10 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Sobre Mí</h2>
-                    <p>Soy <strong>Especialista en Marketing Digital & Creación de Contenido</strong>. Ayudo a negocios locales y de nicho a crecer en el mundo digital a través de estrategias creativas de marketing, diseño de contenido y gestión de redes sociales.</p>
+                    <h2>Sobre nosotros</h2>
+                    <p>Somos <strong>Especialistas en Marketing Digital & Creación de Contenido</strong>. Ayudamos a negocios locales y de nicho a crecer en el mundo digital a través de estrategias creativas de marketing, diseño de contenido y gestión de redes sociales.</p>
                     <p>Mi enfoque está en lograr resultados medibles y una conexión auténtica con la audiencia. Cada proyecto es una oportunidad para crear algo único y significativo que impulse el crecimiento de tu marca.</p>
-                    <p>Mi filosofía se basa en la cercanía, creatividad y resultados medibles. Creo que cada marca tiene una historia única que merece ser contada.</p>
+                    <p>Nuestra filosofía se basa en la cercanía, creatividad y resultados medibles. Creémos que cada marca tiene una historia única que merece ser contada.</p>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Alejandra Miranda - Alean.Studio">
@@ -877,9 +950,9 @@
                         <p>Alean.Studio transformó por completo la presencia digital de mi negocio. Su atención al detalle y creatividad superaron mis expectativas.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="María González">
+                        <img src="angel.png" alt="Angel">
                         <div class="author-info">
-                            <h4>María González</h4>
+                            <h4>Angel Gomez</h4>
                             <p>Rosa Amaranato</p>
                         </div>
                     </div>
@@ -890,9 +963,9 @@
                         <p>El trabajo de branding que realizaron capturó perfectamente la esencia de mi marca. ¡Estoy encantada con los resultados!</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Carlos Mendoza">
+                        <img src="ale.jpg" alt="Alejadnra Miranda">
                         <div class="author-info">
-                            <h4>Carlos Mendoza</h4>
+                            <h4>Alejandra Miranda</h4>
                             <p>Alele Bakery</p>
                         </div>
                     </div>
@@ -903,10 +976,10 @@
                         <p>Increíble profesionalismo y talento. Mi sitio web no solo es hermoso, sino que también ha aumentado mis conversiones.</p>
                     </div>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db1604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Laura Sánchez">
+                        <img src="erick.jpg" alt="Erick Barcenas">
                         <div class="author-info">
-                            <h4>Laura Sánchez</h4>
-                            <p>PuppyLover's</p>
+                            <h4>Erick Barcenas</h4>
+                            <p>Cuarzos Olivia</p>
                         </div>
                     </div>
                 </div>
@@ -965,24 +1038,65 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
+   <!-- Footer modificado con tono gris -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
                 <a href="#" class="footer-logo">Alean<span>.Studio</span></a>
-                <p>Marketing digital creativo y accesible</p>
+                <p>Marketing digital creativo y accesible para hacer crecer tu negocio en el mundo digital.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/studio.alean/"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Alean.Studio - Todos los derechos reservados</p>
+            
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#servicios">Servicios</a>
+                    <a href="#portafolio">Portafolio</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <div class="footer-links">
+                    <a href="#servicios">Branding</a>
+                    <a href="#servicios">Redes Sociales</a>
+                    <a href="#servicios">Diseño Web</a>
+                    <a href="#contacto">Consultoría</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="footer-contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>alean.studio@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>5581288185</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ciudad de México</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-
+        
+        <div class="copyright">
+            <p>&copy; 2023 Alean.Studio - Todos los derechos reservados</p>
+        </div>
+    </div>
+</footer>
     <script>
         // JavaScript para el sistema de pestañas
         document.addEventListener('DOMContentLoaded', function() {
